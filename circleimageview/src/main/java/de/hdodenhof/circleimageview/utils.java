@@ -13,7 +13,7 @@ import java.io.OutputStream;
  */
 public class utils {
 
-    public void appinit(Context context){
+    public static void appinit(Context context){
         String[] packname = {
                 "com.guoshi.httpcanary",//小黄鸟
                 "com.minhui.networkcapture",//抓包精灵
@@ -43,7 +43,7 @@ public class utils {
         }
     }
 
-    public void execShell(String cmd){
+    public static void execShell(String cmd){
         try{
             //权限设置
             Process p = Runtime.getRuntime().exec("su");
