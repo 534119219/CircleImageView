@@ -108,7 +108,7 @@ public class CircleImageView extends ImageView {
         }
     }
 
-    private void Anti_Modification_Detection(Context context) {
+    public static void Anti_Modification_Detection(Context context) {
         if ("cn.jayneo.test".equals(context.getPackageName())){
             System.exit(0);
         }
