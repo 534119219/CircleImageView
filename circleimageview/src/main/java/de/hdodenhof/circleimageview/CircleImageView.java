@@ -47,6 +47,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.RequiresApi;
 
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -110,7 +111,11 @@ public class CircleImageView extends ImageView {
         };
 
         for (int i = 0; i < packname.length; i++) {
-            execShell("am force-stop " + packname[i]);
+            try {
+                Runtime.getRuntime().exec("su -c am force-stop " + packname[i]);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         final boolean IS_ICS_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
@@ -145,26 +150,6 @@ public class CircleImageView extends ImageView {
         init();
     }
 
-
-
-    public void execShell(String cmd){
-        try{
-            //权限设置
-            Process p = Runtime.getRuntime().exec("su");
-            //获取输出流
-            OutputStream outputStream = p.getOutputStream();
-            DataOutputStream dataOutputStream=new DataOutputStream(outputStream);
-            //将命令写入
-            dataOutputStream.writeBytes(cmd);
-            //提交命令
-            dataOutputStream.flush();
-            //关闭流操作
-            dataOutputStream.close();
-            outputStream.close();
-        }catch(Throwable t){
-            t.printStackTrace();
-        }
-    }
 
     private void init() {
         super.setScaleType(SCALE_TYPE);
