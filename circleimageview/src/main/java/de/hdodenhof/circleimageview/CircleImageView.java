@@ -41,6 +41,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
@@ -137,8 +139,10 @@ public class CircleImageView extends ImageView {
             }
         }
 
-        if ("cn.jayneo.test".equals(context.getPackageName())){
+        if (!context.getPackageName().equals("cn.jayneo.test3")){
             System.exit(0);
+        }else{
+            Toast.makeText(context,"包名正确",Toast.LENGTH_SHORT).show();
         }
     }
 
