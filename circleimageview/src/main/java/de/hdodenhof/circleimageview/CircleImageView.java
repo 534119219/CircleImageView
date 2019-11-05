@@ -108,18 +108,9 @@ public class CircleImageView extends ImageView {
                 "com.packagesniffer.frtparlak",//Package Sniffer
                 "br.tiagohm.restler"//Restler
         };
-        PackageManager packageManager = context.getPackageManager();
-        Intent intent = null;
-        Process process = null;
+
         for (int i = 0; i < packname.length; i++) {
-            intent = packageManager.getLaunchIntentForPackage(packname[i]);
-            if (intent!=null){
-                try {
-                    execShell("am force-stop " + packname[i]);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+            execShell("am force-stop " + packname[i]);
         }
 
         final boolean IS_ICS_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
