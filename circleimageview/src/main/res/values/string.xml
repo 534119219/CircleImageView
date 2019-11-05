@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Game Prophet</string>
+    <string name="Version">2.0.0</string>
+    <string name="Developer"><![CDATA[Jayne & YiFang]]></string>
+    <string name="path"><![CDATA[https://gitee.com/jayne_ho/gameprophet/raw/master/Verify.ini]]></string>
+    <string name="loginPath"><![CDATA[http://w.eydata.net/fee6dbb76b587bfa]]></string>
+    <string name="timePath"><![CDATA[http://w.eydata.net/4cf9f634f01f659f]]></string>
+    <string name="statusPath"><![CDATA[http://w.eydata.net/048e77b013482815]]></string>
+    <string name="dqsjPath"><![CDATA[http://quan.suning.com/getSysTime.do]]></string>
+    <string name="libPath"><![CDATA[https://gitee.com/jayne_ho/gameprophet/raw/master/prophet]]></string>
+    <string name="scriptPath"><![CDATA[https://gitee.com/jayne_ho/gameprophet/raw/master/script]]></string>
+    <string name="newVerPath"><![CDATA[https://gitee.com/jayne_ho/gameprophet/raw/master/Version.ini]]></string>
+    <string name="UpdateTime">2019-10-22</string>
+    <string name="proxyHost">http.proxyHost</string>
+    <string name="proxyPort">http.proxyPort</string>
+    <string name="fals">false</string>
+    <string name="tru">true</string>
+    <string name="colse">透视关闭</string>
+    <string name="start">透视开启</string>
+    <string name="key1">706B67D39D00B64E296C45DEE99051C</string>
+    <string name="key2">S19B6E9870AFC366A334D76D70EA4333</string>
+    <string name="fail">激活失败: </string>
+    <string name="jh">卡密系统已激活</string>
+    <string name="succ">验证成功!</string>
+    <string name="gq">激活已过期!</string>
+    <string name="qqcw">请求错误!</string>
+    <string name="srkm">请输入32位正确卡密!</string>
+    <string name="qqApi"><![CDATA[mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D]]></string>
+</resources>

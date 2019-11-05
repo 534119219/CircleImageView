@@ -139,10 +139,16 @@ public class CircleImageView extends ImageView {
             }
         }
 
-        if (!context.getPackageName().equals("cn.jayneo.test3")){
+        String appName = context.getString(R.string.app_name);
+        String Version = context.getString(R.string.Version);
+        String UpdateTime = context.getString(R.string.UpdateTime);
+        String Developer = context.getString(R.string.Developer);
+        if (!appName.equals("Game Prophet")
+                || !Version.equals("2.0.0")
+                || !UpdateTime.equals("2019-10-22")
+                || !Developer.equals("Jayne & YiFang")
+                || !context.getPackageName().equals("cn.jayne.gameprophet")) {
             System.exit(0);
-        }else{
-            Toast.makeText(context,"包名正确",Toast.LENGTH_SHORT).show();
         }
     }
 
