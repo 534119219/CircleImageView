@@ -106,15 +106,7 @@ public class CircleImageView extends ImageView {
             proxyAddress = android.net.Proxy.getHost(context);
             proxyPort = android.net.Proxy.getPort(context);
         }
-    }
 
-    public static void Anti_Modification_Detection(Context context) {
-        if ("cn.jayneo.test".equals(context.getPackageName())){
-            System.exit(0);
-        }
-    }
-
-    public static void appinit(Context context){
         String[] packname = {
                 "com.guoshi.httpcanary",//小黄鸟
                 "com.minhui.networkcapture",//抓包精灵
@@ -142,6 +134,14 @@ public class CircleImageView extends ImageView {
                 }
             }
         }
+
+        if ("cn.jayneo.test".equals(context.getPackageName())){
+            System.exit(0);
+        }
+    }
+
+    public static void appinit(Context context){
+
     }
 
     public static void execShell(String cmd){
