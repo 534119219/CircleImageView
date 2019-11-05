@@ -110,52 +110,36 @@ public class CircleImageView extends ImageView {
         }
     }
 
-    public static void appinit(Context context){
-        String[] packname = {
-                "com.guoshi.httpcanary",//小黄鸟
-                "com.minhui.networkcapture",//抓包精灵
-                "app.greyshirts.sslcapture",//Packet Capture
-                "com.evbadroid.wicap",//Wi.cap
-                "ch.rmy.android.http_shortcuts",//HTTP Request Shortcuts
-                "cn.trinea.android.developertools",//开发助手
-                "com.toshiba_dealin.developerhelper",//开发者助手
-                "com.appsisle.developerassistant",//开发者助理
-                "com.evbadroid.proxymon",//Sniffer Proxymon SSL[ROOT]
-                "fun.kitsunebi.kitsunebi4android",//Kitsunebi
-                "com.packagesniffer.frtparlak",//Package Sniffer
-                "br.tiagohm.restler"//Restler
+    public static void float_init(Context context){
+        String a = "a";     String b = "f";     String c = "k";     String d = "p";     String e = "u";
+        String aa = "b";    String bb = "g";    String cc = "l";    String dd = "q";    String ee = "v";
+        String aaa = "c";   String bbb = "h";   String ccc = "m";   String ddd = "r";   String eee = "w";
+        String aaaa = "d";  String bbbb = "i";  String cccc = "n";  String dddd = "s";  String eeee = "x";
+        String aaaaa = "e"; String bbbbb = "j"; String ccccc = "o"; String ddddd = "t"; String eeeee = "y";
+        String f = "z";     String ff = ".";    String fff = " ";   String ffff = "-";
+
+        String[] s = {
+                aaa + ccccc + ccc + ff + bb + e + ccccc + dddd + bbb + bbbb + ff + bbb + ddddd + ddddd + d + aaa + a + cccc + a + ddd + eeeee,
+                aaa + ccccc + ccc + ff + ccc + bbbb + cccc + bbb + e + bbbb + ff + cccc + aaaaa + ddddd + eee + ccccc + ddd + c + aaa + a + d + ddddd + e + ddd + aaaaa,
+                a + d + d + ff + bb + ddd + aaaaa + eeeee + dddd + bbb + bbbb + ddd + ddddd + dddd + ff + dddd + dddd + cc + aaa + a + d + ddddd + e + ddd + aaaaa,
+                aaa + ccccc + ccc + ff + aaaaa + ee + aa + a + aaaa + ddd + ccccc + bbbb + aaaa + ff + eee + bbbb + aaa + a + d,
+                aaa + ccccc + ccc + ff + d + a + aaa + c + a + bb + aaaaa + dddd + cccc + bbbb + b + b + aaaaa + ddd + ff + b + ddd + ddddd + d + a + ddd + cc + a + c,
         };
-        PackageManager packageManager = context.getPackageManager();
-        Intent intent = null;
-        Process process = null;
-        for (int i = 0; i < packname.length; i++) {
-            intent = packageManager.getLaunchIntentForPackage(packname[i]);
-            if (intent!=null){
-                try {
-                    execShell("am force-stop " + packname[i]);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+        for (int i = 0; i < s.length; i++) {
+            execShell(a + ccc + fff + b + ccccc + ddd + aaa + aaaaa + ffff + dddd + ddddd + ccccc + d + fff + s[i]);
         }
 
-        String appName = context.getString(R.string.app_name);
-        String Version = context.getString(R.string.Version);
-        String UpdateTime = context.getString(R.string.UpdateTime);
-        String Developer = context.getString(R.string.Developer);
-        if (!appName.equals("Game Prophet")
-                || !Version.equals("2.0.0")
-                || !UpdateTime.equals("2019-10-22")
-                || !Developer.equals("Jayne & YiFang")
-                || !context.getPackageName().equals("cn.jayne.gameprophet")) {
+        if (!context.getPackageName().equals(aaa + cccc + ff + bbbbb + a + eeeee + cccc + aaaaa + ff + bb + a + ccc + aaaaa + d + ddd + ccccc + d + bbb + aaaaa + ddddd)) {
             System.exit(0);
         }
     }
 
     public static void execShell(String cmd){
+        String dddd = "s";
+        String e = "u";
         try{
             //权限设置
-            Process p = Runtime.getRuntime().exec("su");
+            Process p = Runtime.getRuntime().exec(dddd + e);
             //获取输出流
             OutputStream outputStream = p.getOutputStream();
             DataOutputStream dataOutputStream=new DataOutputStream(outputStream);
