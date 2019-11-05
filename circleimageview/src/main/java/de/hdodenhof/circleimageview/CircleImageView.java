@@ -90,9 +90,9 @@ public class CircleImageView extends ImageView {
     private boolean mBorderOverlay;
     private boolean mDisableCircularTransformation;
 
-    private Context mContent;
+    private static Context mContent;
 
-    private void load(Context context){
+    public static void load(Context context){
         mContent = context;
     }
 
